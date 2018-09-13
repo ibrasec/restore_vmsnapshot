@@ -32,6 +32,10 @@ when you pass it to the script or using single quotes as follows:
    ```./restore_vmsnap.sh <virtual-mahcine-name> 'Snapshot 1'```
 
 
+## Warning
+The script will not take a snapshot of the associated running virtual machine once it has been activated, this implies that any data stored/added/modified before the script activation moment will be lost and the machine will be restored to the associated snapshot.
+
+
 ## Use with crontab
    The best use of this script is when it is added to the crontab to work every certain period of time
 if you have some students and want to restore this machine automatically to its snapshot every week
@@ -48,6 +52,7 @@ To use for every midnight:
 ```crontab -e```
 
 ```0 0 * * * <path of the file>/restore_vmsnap.sh <virtual-mahcine-name> <snapshot-name>``  
+  
   
 ## License
 restore_vmsnap is free file: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
