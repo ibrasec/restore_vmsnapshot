@@ -43,15 +43,16 @@ do this:
 
 ```crontab -e```
 
-```0 0 * * 1 <path of the file>/restore_vmsnap.sh <virtual-mahcine-name> <snapshot-name>```
+```0 0 * * 1 \<path of the file\>/restore_vmsnap.sh <virtual-mahcine-name> <snapshot-name>```
 
-<path of the file> could be your Download directory or any other directory that has this script.
+<path of the file> could be your Download directory or any other directory that has this script,
+   as example: /home/user/Downloads
   
 To use for every midnight:
   
 ```crontab -e```
 
-```0 0 * * * <path of the file>/restore_vmsnap.sh <virtual-mahcine-name> <snapshot-name>``  
+```0 0 * * * \<path of the file\>/restore_vmsnap.sh <virtual-mahcine-name> <snapshot-name>``  
   
   
 ## License
