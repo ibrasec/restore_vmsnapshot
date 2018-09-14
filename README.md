@@ -52,7 +52,7 @@ To use for every midnight:
   
 ```crontab -e```
 
-```0 0 * * * \<path of the file\>/restore_vmsnap.sh <virtual-mahcine-name> <snapshot-name>``  
+```0 0 * * * \<path of the file\>/restore_vmsnap.sh <virtual-mahcine-name> <snapshot-name>```
   
   
 ## License
