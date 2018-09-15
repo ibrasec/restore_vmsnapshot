@@ -19,35 +19,35 @@ vboxmanage list vms | grep -q "$vm_name"
 then
     #echo "EXists"
     # checking if the snapshot name or its UUID exists
-    vboxmanage snapshot ubu-16 list | grep -q "$snap_name"
+    vboxmanage snapshot "$vm_name" list | grep -q "$snap_name"
     if [ "$?" -eq "0" ]
     then
-        vboxmanage showvminfo ubu-16 | grep -qE "running|paused"
+        vboxmanage showvminfo "$vm_name" | grep -qE "running|paused"
         running_or_paused=$?
-        vboxmanage showvminfo ubu-16 | grep -qE "saved|powered off"
+        vboxmanage showvminfo "$vm_name" | grep -qE "saved|powered off"
         saved_or_off=$?
         if [ "$running_or_paused" -eq "0" ]
         then
             echo ""
             echo "[-] Saving the State of the Virtual machine"
-            vboxmanage controlvm $vm_name savestate
+            vboxmanage controlvm "$vm_name" savestate
             sleep 5
             echo ""
             echo "[-] Restoring the snapshot"
-            vboxmanage snapshot $vm_name restore "$snap_name"
+            vboxmanage snapshot "$vm_name" restore "$snap_name"
             sleep 5
             echo ""
             echo "[-] Starting the Virtualmachine"
-            vboxmanage startvm $vm_name
+            vboxmanage startvm "$vm_name"
         elif [ "$saved_or_off" -eq "0" ]
         then
             echo ""
             echo "[-] Restoring the snapshot"
-            vboxmanage snapshot $vm_name restore $snap_name
+            vboxmanage snapshot "$vm_name" restore "$snap_name"
             wait
             echo ""
             echo "[-] Starting the Virtualmachine"
-            vboxmanage startvm $vm_name
+            vboxmanage startvm "$vm_name"
         else
             echo "Warning: undetermined state..."
             echo "Exiting doing nothing"
