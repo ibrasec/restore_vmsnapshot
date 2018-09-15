@@ -50,7 +50,7 @@ if the previouse crontab didn't work, you might do it follows:
 ```*/1 * * * * /bin/bash -c "DISPLAY=:0.0 <path of the file>/restore_vmsnap.sh <virtual-mahcine-name> <snapshot-name>"```
 
 
-<path of the file> could be your Download directory or any other directory that has this script,
+\<path of the file\> could be your Download directory or any other directory that has this script,
    as example: /home/user/Downloads
   
 To use for every midnight:
